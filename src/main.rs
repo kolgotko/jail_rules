@@ -58,7 +58,7 @@ fn main() {
         let value = ctl.value().unwrap();
         let value_type = ctl.value_type().unwrap();
 
-        let val: Val = match value_type {
+        match value_type {
             CtlType::Int => size_of::<i32>() as i32,
             CtlType::Ulong => size_of::<u32>() as i32,
             CtlType::String => {
@@ -74,6 +74,7 @@ fn main() {
 
                 if let CtlValue::Struct(v) = value {
 
+                    println!("{:?}", v);
                     v[0] as i32
 
                 } else { 0 }
